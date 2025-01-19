@@ -18,7 +18,10 @@
     "require": {
         "php": "^8.2",
         "spatie/laravel-package-tools": "^1.16",
-        "illuminate/contracts": "^10.0||^11.0"
+        "illuminate/contracts": "^10.0||^11.0",
+        "vormkracht10/filament-fields": "dev-main",
+        "vormkracht10/backstage": "dev-main",
+        "vormkracht10/filament-media-picker": "dev-main"
     },
     "require-dev": {
         "laravel/pint": "^1.14",
@@ -80,5 +83,19 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": {
+        "vormkracht10/filament-fields": {
+            "type": "git",
+            "url": "https://github.com/vormkracht10/filament-fields.git"
+        },
+        "vormkracht10/backstage": {
+            "type": "git",
+            "url": "https://github.com/vormkracht10/backstage.git"
+        },
+        "vormkracht10/filament-media-picker": {
+            "type": "git",
+            "url": "https://github.com/vormkracht10/filament-media-picker.git"
+        }
+    }
 }
