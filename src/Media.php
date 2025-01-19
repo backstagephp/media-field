@@ -74,10 +74,14 @@ class Media extends Base implements FieldContract
             return $data;
         }
 
-        $media = MediaModel::whereIn('ulid', $record->values[$field->slug])
+        $values = is_array($record->values[$field->slug])
+            ? $record->values[$field->slug]
+            : [$record->values[$field->slug]];
+
+        $media = MediaModel::whereIn('ulid', $values)
             ->get()
             ->map(function ($media) {
-                return 'media/'.$media->filename;
+                return 'media/' . $media->filename;
             })->toArray();
 
         $data['value'][$field->slug] = $media;
