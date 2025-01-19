@@ -3,13 +3,13 @@
 namespace Vormkracht10\MediaField;
 
 use Filament\Forms;
-use Vormkracht10\Fields\Fields\Base;
-use Vormkracht10\Fields\Models\Field;
 use Illuminate\Database\Eloquent\Model;
 use Vormkracht10\Backstage\Models\Media as MediaModel;
-use Vormkracht10\MediaPicker\MediaPicker;
 use Vormkracht10\Fields\Contracts\FieldContract;
+use Vormkracht10\Fields\Fields\Base;
+use Vormkracht10\Fields\Models\Field;
 use Vormkracht10\MediaPicker\Components\MediaPicker as Input;
+use Vormkracht10\MediaPicker\MediaPicker;
 
 class Media extends Base implements FieldContract
 {
@@ -77,7 +77,7 @@ class Media extends Base implements FieldContract
         $media = MediaModel::whereIn('ulid', $record->values[$field->slug])
             ->get()
             ->map(function ($media) {
-                return 'media/' . $media->filename;
+                return 'media/'.$media->filename;
             })->toArray();
 
         $data['value'][$field->slug] = $media;
