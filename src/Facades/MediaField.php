@@ -5,12 +5,12 @@ namespace Vormkracht10\MediaField\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Vormkracht10\MediaField\MediaField
+ * @see \Vormkracht10\MediaField\Media
  */
-class MediaField extends Facade
+class Media extends Facade
 {
     protected static function getFacadeAccessor(): string
     {
-        return \Vormkracht10\MediaField\MediaField::class;
+        return \Vormkracht10\MediaField\Media::class;
     }
 }

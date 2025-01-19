@@ -11,7 +11,17 @@ Hi! We are a web development agency from Nijmegen in the Netherlands and we use 
 
 ## About this package
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+This package adds a powerful Media field component to the Backstage CMS. It allows you to:
+
+-   Upload and manage media files (images, videos, audio, PDFs) directly in your forms
+-   Configure accepted file types per field
+-   Enable single or multiple file uploads
+-   Easily integrate with Laravel's file storage system
+-   Preview uploaded media files
+-   Organize media assets with a built-in media library
+-   Handle file validation and processing automatically
+
+The Media field is built on top of Filament's form components and integrates seamlessly with the Backstage CMS interface.
 
 ## Installation
 
@@ -21,38 +31,19 @@ You can install the package via composer:
 composer require vormkracht10/backstage-media-field
 ```
 
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="backstage-media-field-migrations"
-php artisan migrate
-```
-
-You can publish the config file with:
-
-```bash
-php artisan vendor:publish --tag="backstage-media-field-config"
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="backstage-media-field-views"
-```
-
-This is the contents of the published config file:
+Then you need to add the Uploadcare field to your `backstage.php` config file:
 
 ```php
 return [
+    'fields' => [
+        Vormkracht10\MediaField\Media::class,
+    ],
 ];
 ```
 
 ## Usage
 
-```php
-$media = new Vormkracht10\Media();
-echo $media->echoPhrase('Hello, Vormkracht10!');
-```
+After adding the Media field to your `backstage.php` config file, the field will automatically be available in the Backstage CMS.
 
 ## Testing
 
