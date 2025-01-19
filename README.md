@@ -23,6 +23,10 @@ This package adds a powerful Media field component to the Backstage CMS. It allo
 
 The Media field is built on top of Filament's form components and integrates seamlessly with the Backstage CMS interface.
 
+### Other custom fields
+
+For a list of other custom fields, please see the [Backstage CMS documentation](https://github.com/vormkracht10/backstage/blob/main/docs/04-plugins/01-introduction.md).
+
 ## Installation
 
 You can install the package via composer:
