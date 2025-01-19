@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Vormkracht10\MediaField\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class MediaFieldCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'backstage-media-field';
 
     public $description = 'My command';
 
