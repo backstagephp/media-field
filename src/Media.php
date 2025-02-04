@@ -70,13 +70,13 @@ class Media extends Base implements FieldContract
 
     public static function mutateFormDataCallback(Model $record, Field $field, array $data): array
     {
-        if (! isset($record->values[$field->slug])) {
+        if (! isset($record->values[$field->ulid])) {
             return $data;
         }
 
-        $values = is_array($record->values[$field->slug])
-            ? $record->values[$field->slug]
-            : [$record->values[$field->slug]];
+        $values = is_array($record->values[$field->ulid])
+            ? $record->values[$field->ulid]
+            : [$record->values[$field->ulid]];
 
         $media = MediaModel::whereIn('ulid', $values)
             ->get()
@@ -84,7 +84,7 @@ class Media extends Base implements FieldContract
                 return 'media/'.$media->filename;
             })->toArray();
 
-        $data['value'][$field->slug] = $media;
+        $data['value'][$field->ulid] = $media;
 
         return $data;
     }
@@ -95,13 +95,13 @@ class Media extends Base implements FieldContract
             return $data;
         }
 
-        if (! isset($data['value'][$field->slug])) {
+        if (! isset($data['value'][$field->ulid])) {
             return $data;
         }
 
-        $media = MediaPicker::create($data['value'][$field->slug]);
+        $media = MediaPicker::create($data['value'][$field->ulid]);
 
-        $data['value'][$field->slug] = collect($media)->map(function ($media) {
+        $data['value'][$field->ulid] = collect($media)->map(function ($media) {
             return $media->ulid;
         })->toArray();
 
